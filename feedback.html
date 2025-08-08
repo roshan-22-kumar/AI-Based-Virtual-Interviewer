@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Interview Feedback</h2>
+    
+    {% for question, answer, feedback, score in data %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Q:</strong> {{ question }}</h5>
+                <p><strong>Your Answer:</strong> {{ answer }}</p>
+                <p><strong>Feedback:</strong> {{ feedback }}</p>
+                <p><strong>Score:</strong> {{ score }}/10</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="card shadow mt-5">
+        <div class="card-body">
+            <h3 class="card-title text-center mb-4">Question {{ q_index + 1 }} of {{ total }}</h3>
+            <p class="mb-3"><strong>Interviewer:</strong> {{ question }}</p>
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="answer" class="form-label">Your Answer:</label>
+                    <textarea class="form-control" id="answer" name="answer" rows="4" required>{{ answer }}</textarea>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" name="prev" class="btn btn-secondary" {% if q_index == 0 %}disabled{% endif %}>Previous</button>
+                    {% if q_index == total - 1 %}
+                        <button type="submit" name="submit" class="btn btn-purple">Submit</button>
+                    {% else %}
+                        <button type="submit" name="next" class="btn btn-primary">Next</button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
